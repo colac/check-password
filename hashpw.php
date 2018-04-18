@@ -1,5 +1,5 @@
 <?php
-echo strtoupper("Hello WORLD!");
+//echo strtoupper("Hello WORLD!");
 if (isset($_POST['passwordToHash'])){
 //phpinfo();
 //echo $_POST['passwordToHash'];
