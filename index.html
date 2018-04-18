@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HaveIBeenPwnd</title>
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <form method="POST" class="form-signin" action="./hashpw.php">
+      <h2 class="form-signin-heading">Password to hash</h2>
+        <label for="passwordToHash" class="sr-only">Password</label>
+        <input id="passwordToHash" name="passwordToHash" class="form-control" placeholder="Password"  type="password" required />
+        <button type="button" id="seePW" class="btn btn-danger my-2" onclick="seePw()">See password</button>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Hash" />
+		
+<?php
+
+// Show all information, defaults to INFO_ALL
+phpinfo();
+
+?>
+		
+      </form>
+  </div> <!-- /container -->
+
+
+  
+<script>
+function seePw() {
+switch (document.getElementById("passwordToHash").type) {
+    case "password":
+        document.getElementById("passwordToHash").type="text";
+        document.getElementById("seePW").innerHTML="Hide Password";
+        break;
+    case "text":
+        document.getElementById("passwordToHash").type="password";
+        document.getElementById("seePW").innerHTML="See Password";
+        break;
+    default:
+        document.getElementById("passwordToHash").type="password";
+        document.getElementById("seePW").innerHTML="See Password";
+  }
+}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

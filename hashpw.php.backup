@@ -1,0 +1,40 @@
+<?php
+echo strtoupper("Hello WORLD!");
+if (isset($_POST['passwordToHash'])){
+//phpinfo();
+//echo $_POST['passwordToHash'];
+
+$password = $_POST['passwordToHash'];
+$hashedPass = sha1($password);
+$hashedUpper = mb_strtoupper($hashedPass);
+//echo $hashedUpper;
+//echo $hashedPass;
+print_r($_POST);
+}
+else {
+	header("location:./index.html");
+	exit();
+	//print_r($_POST);		
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>HaveIBeenPwnd</title>
+    <!--    Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="cover-container">   
+        <div class="inner cover">
+            <h2 class="cover-heading"> <?php echo $hashedPass;?> </h2>
+            <h2 class="cover-heading"> <?php echo $hashedUpper;?> </h2>  
+        </div>
+    </div>
+</body>
+</html>
